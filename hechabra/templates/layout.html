@@ -9,10 +9,11 @@
 	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="{{ url_for('static', filename='/js/jquery.bootstrap-autohidingnavbar.min.js') }}"></script>
 </head>
 <body>
 	<!--Fixed top navigation bar-->
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="navbar navbar-default navbar-fixed-top">
 	  <div class="container-fluid">
 		<div class="navbar-header">
 		  <a class="navbar-brand" href="/" style="padding-top:5px; padding-left:5px; padding-right:5px">
@@ -39,7 +40,7 @@
 		  -->
 		</div>
 	  </div>
-	</nav>
+	</div>
 	
 	<div class="container-fluid">
 		{% block content %}
@@ -50,6 +51,10 @@
 		<div class="container">
 			<p class="text-muted" style="margin:10px">Copyright &#9400; 2015 Peterson Bros Inc</p>
 		</div>
-    </footer>
+    	</footer>
+
+	<script>
+      		$("div.navbar-fixed-top").autoHidingNavbar();
+    	</script>
 </body>
 </html>

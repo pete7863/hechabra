@@ -2,12 +2,22 @@ html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   /* Margin top by header height */
   margin-top: 60px;
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+@media (max-width: 767px) {
+  body {
+    /* Margin top by header height */
+    margin-top: 190px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+}
+
 
 /*Custom nav-bar style*/
 /*http://work.smarchal.com/twbscolor/css/0f4d920b3d75ffffffcacacd0*/
