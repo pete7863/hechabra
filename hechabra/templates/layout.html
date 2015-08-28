@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href= "http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="javascript" href= "http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<!--Fixed top navigation bar-->
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="/" style="padding-top:5px; padding-left:5px; padding-right:5px">
+        		<img alt="Hechabra" src="{{ url_for('static', filename='images/logo_40x40.png') }}">
+      		  </a>
+		</div>
+		<div>
+		  <ul class="nav navbar-nav">
+			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Create <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li><a href="/create/word">New Word</a></li>
+				<li><a href="/create/definition">New Definition</a></li>
+			  </ul>
+			</li>
+			<li><a href="/vote"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Vote</a></li>
+			<li><a href="/stats"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Stats</a></li>
+		  </ul>
+		  <!-- Not doing a login yet
+		  <ul class="nav navbar-nav navbar-right">
+			<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		  </ul>
+		  -->
+		</div>
+	  </div>
+	</nav>
+	
+	<div class="container-fluid">
+		{% block content %}
+      		{% endblock %}
+	</div>
+
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted" style="margin:10px">Copyright &#9400; 2015 Peterson Bros Inc</p>
+		</div>
+    </footer>
+</body>
+</html>
