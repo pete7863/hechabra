@@ -1,8 +1,11 @@
 import sys
 sys.path.insert(0, '/var/www/hechabra')
 
-from hechabra import app
 from flask import render_template
+
+from database.mysql import client
+from web import app
+
 
 @app.route('/')
 def home():
