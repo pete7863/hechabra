@@ -5,8 +5,8 @@
 	<div class="form-group">
 		<label class="col-lg-3 control-label" for="definition">Definition</label>
       		<div class="col-lg-7">
-			<p class="help-block" id="definition"><i>(noun)</i> Test Definition</p>
-			<button class="btn btn-default" type="button">
+			<p class="help-block" id="definition"></p>
+			<button class="btn btn-default" type="button" onclick="get_definition();">
 				<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Different Definition
 			</button>
 		</div>
@@ -25,4 +25,17 @@
 		</div>
 	</div>
 </form>
+
+<script>
+function get_definition() {
+    $.ajax({
+                type: "GET",
+                url: "/get/definition",
+                success: function(result){
+                document.getElementById("definition").innerHTML = "<i>(" + result["part_of_speech"] + ")</i> " + result["definition"];
+            }});
+}
+
+get_definition();
+</script>
 {% endblock %}
