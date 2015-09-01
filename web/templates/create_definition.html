@@ -20,9 +20,26 @@
 		</div>
 	</div>
 	<div class="col-lg-10">
-		<button class="btn btn-default pull-right" type="button">
+		<button class="btn btn-default pull-right" type="button" onclick="submit_definition();">
 			<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Submit
 		</button>
 	</div>
 </form>
+
+<script>
+function submit_definition() {
+    var def_obj = new Object();
+    def_obj.definition = document.getElementById("tb_definition").value;
+    def_obj.part_of_speech = document.getElementById("tb_pos").selectedIndex;
+    def_obj.user_id = 0; //TODO: use the real user_id once it becomes available
+
+    $.ajax({
+        type: "POST",
+        url: "/submit/definition",
+        data: JSON.stringify(def_obj),
+        success: function(result){},
+        contentType: "application/json"
+    });
+}
+</script>
 {% endblock %}

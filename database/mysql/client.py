@@ -29,8 +29,13 @@ def get_cursor():
 
 
 
-def perform_query(query):
+def perform_read_query(query):
     cur = get_cursor()
     cur.execute(query)
 
     return cur.fetchall()
+
+def perform_write_query(query):
+    cur = get_cursor()
+    cur.execute(query)
+    db.commit()
